@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import '../Product.css'
 import ProductList from './ProductList';
 import Pagination from './Pagination';
+import BestProductList from './BestProductList';
 
 function getPageSize() {
     const width = window.innerWidth;
@@ -75,6 +76,20 @@ function Main() {
         setPage(1);
     };
 
+    const handleResize = () => {
+        getPageSize();
+    }
+
+    useEffect(() => {
+        addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [])
+
+    
+
     // useEffect: 콜백과 빈 배열(디펜던시 리스트)을 넘기면, 콜백을 맨 처음 렌더링할 때 한 번만 실행
     useEffect(() => {
         handleLoad();
@@ -95,7 +110,7 @@ function Main() {
                         </div>
                     </div>
                     <div className="bottomArea">
-                        <ProductList items={bestItems} countProduct={4}></ProductList>
+                        <BestProductList items={bestItems}></BestProductList>
                     </div>
 
                 </div>

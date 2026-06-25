@@ -25,6 +25,8 @@ function Pagination({ page, totalPage, onPageChange }) {
 
     const pageNumbers = [];
 
+    // const pageNumberArr = Array.from({length: pageButtonSize})
+
     for (let i = startPage; i <= endPage; i++) {
         pageNumbers.push(i);
     }

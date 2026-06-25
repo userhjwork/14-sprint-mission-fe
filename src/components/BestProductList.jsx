@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-function ProductList({ items }) {
+function BestProductList({ items }) {
 
     return (
         <div className="productList flex">
@@ -11,4 +11,4 @@ function ProductList({ items }) {
     )
 }
 
-export default ProductList;
+export default BestProductList;
